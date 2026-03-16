@@ -1,4 +1,4 @@
-import { User } from "src/users/users.entity";
+import { Users } from "src/users/users.entity";
 import { CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -7,13 +7,13 @@ export class Relationship {
     id: number;
 
 
-    @ManyToOne(() => User)
+    @ManyToOne(() => Users)
     @JoinColumn({ name: 'user_id' })
-    user: User;
+    user: Users;
 
-    @ManyToOne(() => User)
+    @ManyToOne(() => Users)
     @JoinColumn({ name: 'partner_id' })
-    partner: User;
+    partner: Users;
 
     @CreateDateColumn()
     startDate: Date;

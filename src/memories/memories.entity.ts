@@ -1,5 +1,5 @@
 import { Relationship } from "src/relationships/relationships.entity";
-import { User } from "src/users/users.entity";
+import { Users } from "src/users/users.entity";
 import { Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn, Column, CreateDateColumn } from "typeorm";
 
 @Entity()
@@ -11,9 +11,9 @@ export class Memory {
     @JoinColumn({ name: 'relationship_id' })
     relationship: Relationship;
 
-    @ManyToOne(() => User)
+    @ManyToOne(() => Users)
     @JoinColumn({ name: 'user_id' })
-    user: User;
+    user: Users;
 
     @Column()
     imageUrl: string;
