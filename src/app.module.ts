@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './modules/users/users.module';
-import { AuthModule } from './modules/auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
+import { RelationshipsModule } from './relationships/relationships.module';
+import { MemoriesModule } from './memories/memories.module';
 
 @Module({
   imports: [
@@ -29,6 +31,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     }),
     UsersModule,
     AuthModule,
+    RelationshipsModule,
+    MemoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
