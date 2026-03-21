@@ -17,7 +17,8 @@ import type { StringValue } from 'ms';
         if (!secret) {
           throw new Error('JWT_SECRET is not set');
         }
-        const expiresIn = (config.get<string>('JWT_EXPIRES') ?? '7d') as StringValue;
+        const expiresIn = (config.get<string>('JWT_EXPIRES') ??
+          '7d') as StringValue;
         return {
           secret,
           signOptions: { expiresIn },
@@ -26,6 +27,6 @@ import type { StringValue } from 'ms';
     }),
   ],
   providers: [AuthService],
-  controllers: [AuthController]
+  controllers: [AuthController],
 })
-export class AuthModule { }
+export class AuthModule {}

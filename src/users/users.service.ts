@@ -11,7 +11,10 @@ export class UsersService {
   ) {}
 
   async findByEmail(email: string) {
-    return this.userRepository.findOne({ where: { email } });
+    return this.userRepository.findOne({
+      where: { email },
+      select: ['id', 'email', 'password'],
+    });
   }
 
   async create(userData: Partial<User>) {
